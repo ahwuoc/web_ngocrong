@@ -1,0 +1,4 @@
+{"timestamp":"00:03:40.759","source":"Server","level":"ERROR","message":"Error: ENOENT: no such file or directory, scandir '/home/ahwuocdz/web_ngocrong_new/website_ngocrong/app'"}
+{"timestamp":"00:03:40.763","source":"Server","level":"ERROR","message":"⨯ \"unhandledRejection:\" Error: ENOENT: no such file or directory, scandir '/home/ahwuocdz/web_ngocrong_new/website_ngocrong/app'"}
+{"timestamp":"00:03:40.765","source":"Server","level":"ERROR","message":"⨯ \"unhandledRejection: \" Error: ENOENT: no such file or directory, scandir '/home/ahwuocdz/web_ngocrong_new/website_ngocrong/app'"}
+{"timestamp":"00:03:40.828","source":"Server","level":"ERROR","message":"⨯ Module not found: Error: Can't resolve 'next-flight-client-entry-loader' in '/home/ahwuocdz/web_ngocrong_new/website_ngocrong'"}
