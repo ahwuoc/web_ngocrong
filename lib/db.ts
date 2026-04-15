@@ -15,10 +15,13 @@ export function getPool(serverId: number = 1): mysql.Pool {
     database: dbName,
     port: Number(process.env.DB_PORT) || 3306,
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 15,
     queueLimit: 0,
     enableKeepAlive: true,
-    keepAliveInitialDelay: 10000
+    keepAliveInitialDelay: 300000,
+    connectTimeout: 60000,
+    idleTimeout: 60000,
+    maxIdle: 2
   };
 
   if (serverId === 2) {
