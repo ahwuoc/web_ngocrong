@@ -4,7 +4,6 @@ interface Setting {
   value: string;
 }
 
-// Cache settings in memory for the duration of the request
 const settingsCache = new Map<string, string>();
 
 export async function getSetting(key: string, defaultValue = ''): Promise<string> {

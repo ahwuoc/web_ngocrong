@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
-import Navbar from '@/components/Navbar';
+import Header from '@/components/Header';
 import { getSession } from '@/lib/session';
 import { queryOne } from '@/lib/db';
 import { Account } from '@/lib/types';
@@ -36,9 +36,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="stylesheet" href="/assets/frontend/home/v1/css/stylea6ca.css?v=919" />
         <link rel="stylesheet" href="/assets/css/auth.css" />
       </head>
-      <body>
-        <Navbar siteName="NGỌC RỒNG CHILL" user={user || undefined} />
-        {children}
+      <body className="antialiased">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[2000] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-white focus:rounded">
+          Skip to content
+        </a>
+        <Header siteName="NGỌC RỒNG CHILL" user={user || undefined} />
+        <main id="main-content">
+          {children}
+        </main>
         <Script src="/assets/frontend/home/v1/js/jquery.min.js" strategy="beforeInteractive" />
         <Script src="/assets/frontend/home/v1/js/ScrollMagic.min.js" strategy="afterInteractive" />
         <Script src="/assets/frontend/home/v1/js/aos.js" strategy="afterInteractive" />

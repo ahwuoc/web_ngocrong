@@ -11,11 +11,9 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  // Serve assets from parent PHP project directory
   const assetsPath = path.join(__dirname, '..', 'assets');
   server.use('/assets', express.static(assetsPath));
 
-  // Let Next.js handle everything else
   server.all('*', (req, res) => {
     const parsedUrl = parse(req.url!, true);
     handle(req, res, parsedUrl);

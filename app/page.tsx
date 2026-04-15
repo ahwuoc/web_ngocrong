@@ -4,7 +4,6 @@ import { getSetting } from '@/lib/settings';
 import { Post, Slide, Account } from '@/lib/types';
 import { formatDate } from '@/lib/utils';
 import HeroLogo from '@/components/HeroLogo';
-import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 async function getPostsByCategory(slug: string, limit = 5, serverId = 1): Promise<Post[]> {

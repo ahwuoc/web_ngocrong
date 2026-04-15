@@ -1,0 +1,18 @@
+# NGỌC RỒNG CHILL
+
+> Thắng hay bại tại kỹ năng. Trải nghiệm thế giới Ngọc Rồng Chill với đồ họa đỉnh cao, hệ thống nhiệm vụ phong phú và cộng đồng đông đảo.
+
+## Các trang chính
+
+- [Trang chủ](https://ngocrongchill.com/): Tổng quan về game và tin tức mới nhất.
+- [Bảng xếp hạng](https://ngocrongchill.com/bangxephang): Vinh danh những cao thủ hàng đầu.
+- [Tin tức & Sự kiện](https://ngocrongchill.com/tin-tuc): Cập nhật thông tin nhanh nhất.
+- [Hướng dẫn](https://ngocrongchill.com/huong-dan): Cẩm nang dành cho tân thủ.
+- [Đăng nhập](https://ngocrongchill.com/login): Truy cập vào tài khoản cá nhân.
+- [Đăng ký](https://ngocrongchill.com/register): Khởi đầu hành trình mới.
+
+## Thông tin kỹ thuật
+
+- Ngôn ngữ: Tiếng Việt (vi)
+- Công nghệ: Next.js, Tailwind CSS
+- Tính năng: Quản lý tài khoản, Nạp tiền, BXH Thời gian thực.
