@@ -2,7 +2,9 @@ import mysql from 'mysql2/promise';
 
 const globalForDb = global as unknown as {
   pool1: mysql.Pool | undefined;
+  lastDb1: string | undefined;
   pool2: mysql.Pool | undefined;
+  lastDb2: string | undefined;
 };
 
 export function getPool(serverId: number = 1): mysql.Pool {
@@ -29,15 +31,17 @@ export function getPool(serverId: number = 1): mysql.Pool {
   };
 
   if (serverId === 2) {
-    if (!globalForDb.pool2 || (globalForDb.pool2 as any).config.connectionConfig.database !== dbName) {
+    if (!globalForDb.pool2 || globalForDb.lastDb2 !== dbName) {
       if (globalForDb.pool2) globalForDb.pool2.end();
       globalForDb.pool2 = mysql.createPool(poolConfig);
+      globalForDb.lastDb2 = dbName;
     }
     return globalForDb.pool2;
   }
-  if (!globalForDb.pool1 || (globalForDb.pool1 as any).config.connectionConfig.database !== dbName) {
+  if (!globalForDb.pool1 || globalForDb.lastDb1 !== dbName) {
     if (globalForDb.pool1) globalForDb.pool1.end();
     globalForDb.pool1 = mysql.createPool(poolConfig);
+    globalForDb.lastDb1 = dbName;
   }
   return globalForDb.pool1;
 }
