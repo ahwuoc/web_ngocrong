@@ -14,6 +14,10 @@ export function getPool(serverId: number = 1): mysql.Pool {
     password: process.env.DB_PASS,
     database: dbName,
     port: Number(process.env.DB_PORT) || 3306,
+    ssl: process.env.DB_SSL === 'true' ? {
+      minVersion: 'TLSv1.2',
+      rejectUnauthorized: true
+    } : undefined,
     waitForConnections: true,
     connectionLimit: 15,
     queueLimit: 0,
@@ -25,12 +29,14 @@ export function getPool(serverId: number = 1): mysql.Pool {
   };
 
   if (serverId === 2) {
-    if (!globalForDb.pool2) {
+    if (!globalForDb.pool2 || (globalForDb.pool2 as any).config.connectionConfig.database !== dbName) {
+      if (globalForDb.pool2) globalForDb.pool2.end();
       globalForDb.pool2 = mysql.createPool(poolConfig);
     }
     return globalForDb.pool2;
   }
-  if (!globalForDb.pool1) {
+  if (!globalForDb.pool1 || (globalForDb.pool1 as any).config.connectionConfig.database !== dbName) {
+    if (globalForDb.pool1) globalForDb.pool1.end();
     globalForDb.pool1 = mysql.createPool(poolConfig);
   }
   return globalForDb.pool1;

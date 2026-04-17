@@ -11,8 +11,8 @@ async function getPostsByCategory(slug: string, limit = 5, serverId = 1): Promis
     `SELECT p.*, c.name as category_name FROM posts p
      JOIN categories c ON p.category_id = c.id
      WHERE c.slug = ? AND p.status = 'published'
-     ORDER BY p.published_at DESC LIMIT ?`,
-    [slug, limit],
+     ORDER BY p.published_at DESC LIMIT ${Number(limit)}`,
+    [slug],
     serverId
   );
 }
